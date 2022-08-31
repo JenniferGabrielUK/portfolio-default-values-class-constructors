@@ -1,0 +1,30 @@
+// portfolio-default-values-class-constructors.cpp : This file contains the 'main' function. Program execution begins and ends there.
+#include <iostream>
+#include <string>
+
+class Player {
+private:
+    std::string name;
+    double health;
+    int xp;
+public:
+    Player(std::string name, double health, int xp);
+    ~Player();
+};
+
+Player::Player(std::string name = "unknown", double health = 1.0, int xp = 1) : name{ name }, health{ health }, xp{ xp } {
+    std::cout << "Default parameter constructor being called." << std::endl;
+}
+
+Player::~Player() { std::cout << "Destructor being called." << std::endl; }
+
+int main()
+{
+    Player jenny;
+    Player elizabeth{ "Liz" };
+    Player gabriel{ "Gabriel", 3.3, 12 };
+    Player* player_1 = new Player{ "Sam", 4.4};
+    delete player_1;
+
+    return 0;
+}
